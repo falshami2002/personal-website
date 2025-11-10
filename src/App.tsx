@@ -78,21 +78,31 @@ const ContactForm = () => {
 pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
 const ResumePreview = () => {
+  const [width, setWidth] = useState(600);
+
+  useEffect(() => {
+    const updateWidth = () => setWidth(window.innerWidth);
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
   return (
-    <div className="flex justify-center py-8">
-      <div className="border border-slate-300 rounded-xl shadow-sm overflow-hidden">
+    <div className="flex justify-center py-8 px-2">
+      <div className="border border-slate-300 rounded-xl shadow-sm overflow-hidden bg-white">
         <Document file="/Resume.pdf" onLoadError={console.error}>
           <Page
             pageNumber={1}
             renderTextLayer={false}
             renderAnnotationLayer={false}
             className="bg-white"
+            width={Math.min(width * 0.9, 800)} 
           />
         </Document>
       </div>
     </div>
   );
-}
+};
 
 const skills = [
   { name: "TypeScript", icon: <SiTypescript className="text-sky-600 text-2xl sm:text-4xl" /> },
