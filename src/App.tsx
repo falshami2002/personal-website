@@ -443,14 +443,14 @@ export default function Portfolio() {
               title="Soccer Pass Prediction"
               description="A machine learning model built using Python and TensorFlow to predict successful passes in soccer games and assign an expected pass value to each pass indicating the chance of success. The model was trained on a dataset of passes from professional soccer games, using features such as player positions, pass distance, and pass angle. The model achieved an accuracy of 85% on the test set and was able to identify key factors that contribute to successful passes."
               tech={["OpenCV", "TensorFlow", "Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib"]}
-              image={"/fitquest-1.png"}
-              githubUrl="https://github.com/falshami2002/Online-Chess-Image-Analysis"
+              image={"/SoccerPassPrediction.png"}
             />
             <ProjectCard
               title="Mastermind Trivia Game"
               description="A full-stack web application built using Next.js and AWS services including Lambda, DynamoDB, S3, and Step Functions to create a multiplayer real-time trivia-style game based around soccer with different game modes. The application features a serverless architecture, allowing for scalability and cost-effectiveness. Users can sign up and challenge their friends."
               tech={["Next.js", "AWS Lambda", "DynamoDB", "S3", "Step Functions", "TypeScript", "Tailwind CSS"]}
-              image={"/fitquest-1.png"}
+              image={"/Mastermind.png"}
+              githubUrl="https://github.com/falshami2002/Mastermind"
             />
           </div>
         </Section>
