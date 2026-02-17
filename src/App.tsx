@@ -7,7 +7,23 @@ import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 import { FiGithub, FiPlay } from "react-icons/fi";
 import { FaLink } from "react-icons/fa6";
-import { SiTypescript, SiReact, SiNodedotjs, SiExpress, SiPython, SiTensorflow, SiKotlin, SiDocker, SiMongodb, SiJavascript, SiNextdotjs, SiPostgresql  } from "react-icons/si";
+import { 
+  SiTypescript,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiPython,
+  SiTensorflow,
+  SiKotlin,
+  SiDocker,
+  SiMongodb,
+  SiJavascript,
+  SiNextdotjs,
+  SiPostgresql,
+  SiC,
+  SiCplusplus,
+  SiGo
+} from "react-icons/si";
 import emailjs from "emailjs-com";
 
 const ContactForm = () => {
@@ -90,7 +106,7 @@ const ResumePreview = () => {
   return (
     <div className="flex justify-center py-8 px-2">
       <div className="border border-slate-300 rounded-xl shadow-sm overflow-hidden bg-white">
-        <Document file="/Resume.pdf" onLoadError={console.error}>
+        <Document file="/Resume1.pdf" onLoadError={console.error}>
           <Page
             pageNumber={1}
             renderTextLayer={false}
@@ -105,19 +121,29 @@ const ResumePreview = () => {
 };
 
 const skills = [
+  // Systems / Core Languages
+  { name: "C", icon: <SiC className="text-blue-600 text-2xl sm:text-4xl" /> },
+  { name: "C++", icon: <SiCplusplus className="text-blue-700 text-2xl sm:text-4xl" /> },
+  { name: "Go", icon: <SiGo className="text-sky-500 text-2xl sm:text-4xl" /> },
+
+  // Web Languages
   { name: "TypeScript", icon: <SiTypescript className="text-sky-600 text-2xl sm:text-4xl" /> },
+  { name: "JavaScript", icon: <SiJavascript className="text-yellow-400 text-2xl sm:text-4xl" /> },
+  { name: "Python", icon: <SiPython className="text-yellow-500 text-2xl sm:text-4xl" /> },
+  { name: "Kotlin", icon: <SiKotlin className="text-purple-500 text-2xl sm:text-4xl" /> },
+
+  // Frameworks / Runtime
   { name: "React", icon: <SiReact className="text-sky-500 text-2xl sm:text-4xl" /> },
+  { name: "Next.js", icon: <SiNextdotjs className="text-gray-900 text-2xl sm:text-4xl" /> },
   { name: "Node.js", icon: <SiNodedotjs className="text-green-600 text-2xl sm:text-4xl" /> },
   { name: "Express", icon: <SiExpress className="text-gray-700 text-2xl sm:text-4xl" /> },
-  { name: "Python", icon: <SiPython className="text-yellow-500 text-2xl sm:text-4xl" /> },
-  { name: "TensorFlow", icon: <SiTensorflow className="text-orange-500 text-2xl sm:text-4xl" /> },
-  { name: "Kotlin", icon: <SiKotlin className="text-purple-500 text-2xl sm:text-4xl" /> },
-  { name: "AWS", icon: <FaAws className="text-orange-400 text-2xl sm:text-4xl" /> },
-  { name: "Docker", icon: <SiDocker className="text-sky-500 text-2xl sm:text-4xl" /> },
-  { name: "MongoDB", icon: <SiMongodb className="text-green-700 text-2xl sm:text-4xl" /> },
-  { name: "JavaScript", icon: <SiJavascript className="text-yellow-400 text-2xl sm:text-4xl" /> },
-  { name: "Next.js", icon: <SiNextdotjs className="text-gray-900 text-2xl sm:text-4xl" /> },
+
+  // Data / ML / Infra
   { name: "SQL", icon: <SiPostgresql className="text-blue-500 text-2xl sm:text-4xl" /> },
+  { name: "MongoDB", icon: <SiMongodb className="text-green-700 text-2xl sm:text-4xl" /> },
+  { name: "TensorFlow", icon: <SiTensorflow className="text-orange-500 text-2xl sm:text-4xl" /> },
+  { name: "Docker", icon: <SiDocker className="text-sky-500 text-2xl sm:text-4xl" /> },
+  { name: "AWS", icon: <FaAws className="text-orange-400 text-2xl sm:text-4xl" /> },
 ];
 
 const SkillsSection = () => {
@@ -155,65 +181,92 @@ type ProjectCardProps = {
   liveUrl?: string;
 };
 
-function ProjectCard({ title, description, tech, image, githubUrl, demoUrl, liveUrl }: ProjectCardProps) {
-
+function ProjectCard({
+  title,
+  description,
+  tech,
+  image,
+  githubUrl,
+  demoUrl,
+  liveUrl,
+}: ProjectCardProps) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-      <div className="grid md:grid-cols-[minmax(260px,420px)_1fr]">
+      <div className="grid md:grid-cols-[minmax(260px,420px)_1fr] items-stretch">
+        
+        {/* Image Section */}
         <div className="relative bg-slate-100">
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover aspect-square md:aspect-auto md:h-full"
+            className="w-full h-full object-cover aspect-square md:aspect-auto"
           />
         </div>
-        <div className="p-6 md:p-8">
-          <h3 className="text-xl font-semibold text-slate-900">{title}</h3>
-          <p className="mt-3 text-slate-600 leading-relaxed">{description}</p>
 
-          <div className="mt-5">
-            <p className="font-medium text-slate-800 text-sm">Technologies Used:</p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {tech.map((t) => (
-                <Pill key={t}>{t}</Pill>
-              ))}
+        {/* Content Section */}
+        <div className="p-6 md:p-8 flex flex-col justify-between h-full">
+          
+          {/* Top Content */}
+          <div>
+            <h3 className="text-xl font-semibold text-slate-900">
+              {title}
+            </h3>
+
+            <p className="mt-3 text-slate-600 leading-relaxed">
+              {description}
+            </p>
+
+            <div className="mt-5">
+              <p className="font-medium text-slate-800 text-sm">
+                Technologies Used:
+              </p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {tech.map((t) => (
+                  <Pill key={t}>{t}</Pill>
+                ))}
+              </div>
             </div>
           </div>
+
+          {/* Buttons (anchored bottom) */}
           <div className="mt-6 flex flex-wrap gap-3 text-black">
             {githubUrl && (
               <a
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:bg-slate-300 inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2 text-sm hover:border-slate-300"
+                className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2 text-sm hover:border-slate-300 hover:bg-slate-100 transition"
               >
                 <FiGithub />
                 View on GitHub
               </a>
             )}
+
             {demoUrl && (
               <a
                 href={demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2 text-sm text-slate-800 hover:border-slate-300"
+                className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2 text-sm hover:border-slate-300 hover:bg-slate-100 transition"
               >
                 <FiPlay />
                 Watch Demo
               </a>
             )}
+
             {liveUrl && (
               <a
                 href={liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2 text-sm text-slate-800 hover:border-slate-300"
+                className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2 text-sm hover:border-slate-300 hover:bg-slate-100 transition"
               >
                 <FaLink />
                 Go to Live Site
               </a>
             )}
           </div>
+
         </div>
       </div>
     </div>
@@ -370,7 +423,7 @@ export default function Portfolio() {
             <ResumePreview />
             <div className="group rounded-full px-4 py-2 bg-slate-900 border border-black transition-colors duration-300 hover:bg-white">
               <a
-                href="/Resume.pdf"
+                href="/Resume1.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -393,8 +446,8 @@ export default function Portfolio() {
               </div>
               <ul className="mt-3 list-disc pl-5 text-slate-700 space-y-2">
                 <li className="text-md text-slate-700">Led a 5-person team applying Agaile and CI/CD practices to build an Android application in Kotlin and IoT devices for supportive housing partners</li>
-                <li className="text-md text-slate-700">Delivered the system 3 weeks ahead of schedule to partners housing over 20,000 residents, securing over $2 million in funding</li>
-                <li className="text-md text-slate-700">Built and deployed a secure Express + Node.js REST API with a local SQLite database safeguarding resident data</li>
+                <li className="text-md text-slate-700">Delivered the system 3 weeks ahead of schedule to partners housing over 30,000 residents, securing over $1.2 million in funding</li>
+                <li className="text-md text-slate-700">Built and deployed a secure Express + Node.js backend safeguarding resident data</li>
                 <li className="text-md text-slate-700">Programmed ESP32 and Arduino microcontrollers in C++, reducing device-app latency to less than 200 ms for real-time performance</li>
               </ul>
             </li>
@@ -432,6 +485,20 @@ export default function Portfolio() {
           <br></br>
           <div className="mx-auto max-w-7xl space-y-6">
             <ProjectCard
+              title="Go Database"
+              description="Implemented a disk-backed key-value engine in Go using a page-based B-Tree with fixed 4KB pages and custom binary layout. Designed insert/lookup with in-node binary search and recursive splitting, and built page allocation for persistent storage."
+              tech={["Go", "Systems Programming"]}
+              image={"/database.jpg"}
+              githubUrl="https://github.com/falshami2002/go-database"
+            />
+            <ProjectCard
+              title="HTTP Server"
+              description="Implemented a HTTP/1.1 file server in C using POSIX sockets, handling request parsing and file streaming over TCP, and connection handling using socket, bind, listen, and accept, manually parsing HTTP headers and streaming files in chunks over TCP."
+              tech={["C", "Socket Programming"]}
+              image={"/server.jpg"}
+              githubUrl="https://github.com/falshami2002/http-server"
+            />
+            <ProjectCard
               title="Chess Image Analysis"
               description="A full-stack web application build using React, Node.js, Express, and MongoDB (MERN) to allow users to analyze online chess positions from images. The application takes a user's input, uses OpenCV to process the image and divide it into 64 squares, passes the images to a machine learning model to detect what piece occupies each square, and then returns a Forsyth-Edwards Notation string and allows the user to analyze the position using an engine. Users can sign up, authenticated with JWT, to save positions and store them for later analysis."
               tech={["React", "Node.js", "Express", "MongoDB", "OpenCV", "TensorFlow", "Docker", "Typescript", "Python", "Tailwind CSS"]}
@@ -444,6 +511,7 @@ export default function Portfolio() {
               description="A machine learning model built using Python and TensorFlow to predict successful passes in soccer games and assign an expected pass value to each pass indicating the chance of success. The model was trained on a dataset of passes from professional soccer games, using features such as player positions, pass distance, and pass angle. The model achieved an accuracy of 85% on the test set and was able to identify key factors that contribute to successful passes."
               tech={["OpenCV", "TensorFlow", "Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib"]}
               image={"/SoccerPassPrediction.png"}
+              githubUrl="https://github.com/falshami2002/expected-pass"
             />
             <ProjectCard
               title="Mastermind Trivia Game"
