@@ -106,7 +106,7 @@ const ResumePreview = () => {
   return (
     <div className="flex justify-center py-8 px-2">
       <div className="border border-slate-300 rounded-xl shadow-sm overflow-hidden bg-white">
-        <Document file="/Resume1.pdf" onLoadError={console.error}>
+        <Document file="/Resume.pdf" onLoadError={console.error}>
           <Page
             pageNumber={1}
             renderTextLayer={false}
@@ -378,7 +378,7 @@ export default function Portfolio() {
             Hi, I’m Firas Alshami
           </h1>
           <p className="mt-4 text-slate-700 max-w-3xl mx-auto text-lg">
-            Software Engineer | Computer Science @ California State University, Fullerton
+            Software Engineer
           </p>
           <div className="mt-6 flex flex-wrap gap-3 justify-center">
             <div className="group rounded-full px-4 py-2 bg-slate-900 border border-black transition-colors duration-300 hover:bg-white">
@@ -411,7 +411,7 @@ export default function Portfolio() {
               <br></br>
               <p>Hi! My name is Firas, and I am a recent graduate from California State University, Fullerton. I graduated in May 2025 with a Major GPA of 3.92 and learned many valuable development and problem solving skills. My passion for software began at a young age as I was creating mods for my friends and I to enjoy on a Minecraft server. Throughout the years, this passion has grown to encompass solving real-world problems through software.</p>
               <br></br>
-              <p>As a software engineer, I enjoy working on both front-end and back-end development, as well as exploring the field of machine learning. I am always eager to learn new technologies and improve my skills. In my free time, I enjoy contributing to open-source projects, building personal projects, and staying up-to-date with the latest trends in technology.</p>
+              <p>As a software engineer, I enjoy working on both front-end and back-end development, as well as exploring the field of machine learning. I am always eager to learn new technologies and improve my skills. In my free time, I enjoy building projects, and staying up-to-date with the latest trends in technology.</p>
               <br></br>
               <p>Feel free to explore my portfolio to see some of the projects I've worked on and the skills I've acquired. If you'd like to get in touch, please don't hesitate to reach out through the contact section below!</p>
             </div>
@@ -423,7 +423,7 @@ export default function Portfolio() {
             <ResumePreview />
             <div className="group rounded-full px-4 py-2 bg-slate-900 border border-black transition-colors duration-300 hover:bg-white">
               <a
-                href="/Resume1.pdf"
+                href="/Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -485,6 +485,13 @@ export default function Portfolio() {
           <br></br>
           <div className="mx-auto max-w-7xl space-y-6">
             <ProjectCard
+              title="Mastermind Trivia Game"
+              description="A full-stack web application built using Next.js and AWS services including Lambda, DynamoDB, S3, and Step Functions to create a multiplayer real-time trivia-style game based around soccer with different game modes. The application features a serverless architecture, allowing for scalability and cost-effectiveness. Users can sign up and challenge their friends."
+              tech={["Next.js", "AWS Lambda", "DynamoDB", "S3", "Step Functions", "TypeScript", "Tailwind CSS"]}
+              image={"/Mastermind.png"}
+              githubUrl="https://github.com/falshami2002/Mastermind"
+            />
+            {/* <ProjectCard
               title="Go Database"
               description="Implemented a disk-backed key-value engine in Go using a page-based B-Tree with fixed 4KB pages and custom binary layout. Designed insert/lookup with in-node binary search and recursive splitting, and built page allocation for persistent storage."
               tech={["Go", "Systems Programming"]}
@@ -497,7 +504,7 @@ export default function Portfolio() {
               tech={["C", "Socket Programming"]}
               image={"/server.jpg"}
               githubUrl="https://github.com/falshami2002/http-server"
-            />
+            /> */}
             <ProjectCard
               title="Chess Image Analysis"
               description="A full-stack web application build using React, Node.js, Express, and MongoDB (MERN) to allow users to analyze online chess positions from images. The application takes a user's input, uses OpenCV to process the image and divide it into 64 squares, passes the images to a machine learning model to detect what piece occupies each square, and then returns a Forsyth-Edwards Notation string and allows the user to analyze the position using an engine. Users can sign up, authenticated with JWT, to save positions and store them for later analysis."
@@ -513,13 +520,7 @@ export default function Portfolio() {
               image={"/SoccerPassPrediction.png"}
               githubUrl="https://github.com/falshami2002/expected-pass"
             />
-            <ProjectCard
-              title="Mastermind Trivia Game"
-              description="A full-stack web application built using Next.js and AWS services including Lambda, DynamoDB, S3, and Step Functions to create a multiplayer real-time trivia-style game based around soccer with different game modes. The application features a serverless architecture, allowing for scalability and cost-effectiveness. Users can sign up and challenge their friends."
-              tech={["Next.js", "AWS Lambda", "DynamoDB", "S3", "Step Functions", "TypeScript", "Tailwind CSS"]}
-              image={"/Mastermind.png"}
-              githubUrl="https://github.com/falshami2002/Mastermind"
-            />
+          
           </div>
         </Section>
 
