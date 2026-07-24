@@ -485,6 +485,12 @@ export default function Portfolio() {
           <br></br>
           <div className="mx-auto max-w-7xl space-y-6">
             <ProjectCard
+              title="Personal Injury Sync"
+              description="A full-stack web application built using React, Go, and PostgreSQL to allow medical providers to increase their visibility to personal injury firms while streamlining the pre-litigation case workflow."
+              tech={["React", "Go", "PostgreSQL"]}
+              image={"/PersonalInjurySync.png"}
+            />
+            <ProjectCard
               title="Mastermind Trivia Game"
               description="A full-stack web application built using Next.js and AWS services including Lambda, DynamoDB, S3, and Step Functions to create a multiplayer real-time trivia-style game based around soccer with different game modes. The application features a serverless architecture, allowing for scalability and cost-effectiveness. Users can sign up and challenge their friends."
               tech={["Next.js", "AWS Lambda", "DynamoDB", "S3", "Step Functions", "TypeScript", "Tailwind CSS"]}
