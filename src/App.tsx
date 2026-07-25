@@ -445,10 +445,11 @@ export default function Portfolio() {
                 <p className="text-sm text-slate-500">June 2024 – July 2025 · Fullerton, CA</p>
               </div>
               <ul className="mt-3 list-disc pl-5 text-slate-700 space-y-2">
-                <li className="text-md text-slate-700">Led a 5-person team applying Agaile and CI/CD practices to build an Android application in Kotlin and IoT devices for supportive housing partners</li>
-                <li className="text-md text-slate-700">Delivered the system 3 weeks ahead of schedule to partners housing over 30,000 residents, securing over $1.2 million in funding</li>
-                <li className="text-md text-slate-700">Built and deployed a secure Express + Node.js backend safeguarding resident data</li>
-                <li className="text-md text-slate-700">Programmed ESP32 and Arduino microcontrollers in C++, reducing device-app latency to less than 200 ms for real-time performance</li>
+                <li className="text-md text-slate-700">Built and maintained Node.js/Express Rest APIs for the Smart Hub application for use by housing providers and residents including role based access control and authentication. </li>
+                <li className="text-md text-slate-700">Implemented scrum and CI/CD practices including automated unit testing which allowed the team to complete the project ahead of schedule while safeguarding client PHI.</li>
+                <li className="text-md text-slate-700">Raised over $1.2 million in funding from the NSF by co-authoring documentation and presentations.</li>
+                <li className="text-md text-slate-700">Delivered an IoT system including a full stack application serving over 30,000 residents.</li>
+                <li className="text-md text-slate-700">Developed C++ firmware for the ESP32 for SmartPill, SmartPot, and SmartMotion achieving latency below 250ms for all devices.</li>
               </ul>
             </li>
           </ul>
