@@ -440,7 +440,7 @@ export default function Portfolio() {
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
                 <div>
                   <p className="text-lg font-semibold text-slate-900">Lead Research Assistant · Supportive Housing Project</p>
-                  <p className="text-sm text-slate-600">Led a 5-person team to develop a full-stack Kotlin Android application</p>
+                  <p className="text-sm text-slate-600">Led a 5-person team to develop a IoT system</p>
                 </div>
                 <p className="text-sm text-slate-500">June 2024 – July 2025 · Fullerton, CA</p>
               </div>
@@ -459,6 +459,14 @@ export default function Portfolio() {
           <br></br>
           <div className="mx-auto max-w-3xl grid gap-3 text-left">
             <div className="rounded-2xl border border-slate-200 p-10 shadow-sm">
+              <p className="text-lg text-black font-bold">University of California - Irvine</p>
+              <div className="flex items-center">
+                <p className="font-medium text-slate-900">Master of Computer Science</p>
+                <p className="text-sm text-slate-600">&nbsp;|&nbsp;Expected January of 2028</p>
+              </div>
+            </div>
+            <br></br>
+            <div className="rounded-2xl border border-slate-200 p-10 shadow-sm">
               <p className="text-lg text-black font-bold">California State University, Fullerton</p>
               <div className="flex items-center">
                 <p className="font-medium text-slate-900">Bachelor of Science in Computer Science</p>
@@ -469,15 +477,6 @@ export default function Portfolio() {
                 <p className="text-md text-black">&nbsp;3.92</p>
               </div>
               <p className="text-md text-black">Dean's Honor List All Semesters</p>
-              <br></br>
-              <p className="font-medium text-slate-900">Relevant coursework:</p>
-              <ul className="list-disc list-inside space-y-2">
-                <li className="text-md text-slate-700">Data Structures and Algorithms</li>
-                <li className="text-md text-slate-700">Databases and File Structures</li>
-                <li className="text-md text-slate-700">Artifical Intelligence</li>
-                <li className="text-md text-slate-700">Front End Web Development</li>
-                <li className="text-md text-slate-700">Back End Web Development</li>
-              </ul>
             </div>
           </div>
         </Section>
