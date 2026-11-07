@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { FaLinkedin, FaGithub, FaAws } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { IoDownloadOutline } from "react-icons/io5";
 import { Document, Page, pdfjs } from "react-pdf";
 import workerSrc from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 import { FiGithub, FiPlay } from "react-icons/fi";
+import { HiSpeakerWave } from "react-icons/hi2";
 import { FaLink } from "react-icons/fa6";
 import { 
   SiTypescript,
@@ -22,7 +23,14 @@ import {
   SiPostgresql,
   SiC,
   SiCplusplus,
-  SiGo
+  SiGo,
+  SiFastapi,
+  SiOpencv,
+  SiLangchain,
+  SiTerraform,
+  SiAmazoneks,
+  SiGit,
+  SiLinear
 } from "react-icons/si";
 import emailjs from "emailjs-com";
 
@@ -137,13 +145,21 @@ const skills = [
   { name: "Next.js", icon: <SiNextdotjs className="text-gray-900 text-2xl sm:text-4xl" /> },
   { name: "Node.js", icon: <SiNodedotjs className="text-green-600 text-2xl sm:text-4xl" /> },
   { name: "Express", icon: <SiExpress className="text-gray-700 text-2xl sm:text-4xl" /> },
+  { name: "FastAPI", icon: <SiFastapi className="text-teal-600 text-2xl sm:text-4xl" /> },
 
   // Data / ML / Infra
   { name: "SQL", icon: <SiPostgresql className="text-blue-500 text-2xl sm:text-4xl" /> },
   { name: "MongoDB", icon: <SiMongodb className="text-green-700 text-2xl sm:text-4xl" /> },
   { name: "TensorFlow", icon: <SiTensorflow className="text-orange-500 text-2xl sm:text-4xl" /> },
+  { name: "LangChain", icon: <SiLangchain className="text-emerald-600 text-2xl sm:text-4xl" /> },
+  { name: "LangGraph", icon: <SiLangchain className="text-teal-700 text-2xl sm:text-4xl" /> },
+  { name: "OpenCV", icon: <SiOpencv className="text-red-500 text-2xl sm:text-4xl" /> },
+  { name: "ElevenLabs", icon: <HiSpeakerWave className="text-slate-800 text-2xl sm:text-4xl" /> },
   { name: "Docker", icon: <SiDocker className="text-sky-500 text-2xl sm:text-4xl" /> },
-  { name: "AWS", icon: <FaAws className="text-orange-400 text-2xl sm:text-4xl" /> },
+  { name: "Terraform", icon: <SiTerraform className="text-purple-600 text-2xl sm:text-4xl" /> },
+  { name: "EKS", icon: <SiAmazoneks className="text-orange-500 text-2xl sm:text-4xl" /> },
+  { name: "Git", icon: <SiGit className="text-orange-600 text-2xl sm:text-4xl" /> },
+  { name: "Linear", icon: <SiLinear className="text-slate-800 text-2xl sm:text-4xl" /> },
 ];
 
 const SkillsSection = () => {
@@ -378,12 +394,12 @@ export default function Portfolio() {
             Hi, I’m Firas Alshami
           </h1>
           <p className="mt-4 text-slate-700 max-w-3xl mx-auto text-lg">
-            Software Engineer
+            Software Engineer @ TaxRise
           </p>
           <div className="mt-6 flex flex-wrap gap-3 justify-center">
             <div className="group rounded-full px-4 py-2 bg-slate-900 border border-black transition-colors duration-300 hover:bg-white">
               <a
-                href="https://www.linkedin.com/in/firas-alshami-b8959a260/"
+                href="https://www.linkedin.com/in/falshami/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -407,11 +423,11 @@ export default function Portfolio() {
         <Section id="about" title="About Me">
           <div className="mx-auto max-w-3xl grid gap-3 text-left">
             <div className="rounded-2xl border border-slate-200 p-10 m-5 shadow-sm">
-              <p className="text-lg text-black font-semibold">Developer with a Passion for Full-Stack Development and Machine Learning</p>
+              <p className="text-lg text-black font-semibold">Software Engineer focused on web development and AI agents</p>
               <br></br>
-              <p>Hi! My name is Firas, and I am a recent graduate from California State University, Fullerton. I graduated in May 2025 with a Major GPA of 3.92 and learned many valuable development and problem solving skills. My passion for software began at a young age as I was creating mods for my friends and I to enjoy on a Minecraft server. Throughout the years, this passion has grown to encompass solving real-world problems through software.</p>
+              <p>Hi! My name is Firas, and I am a Software Engineer @ TaxRise in Irvine, CA. I graduated from California State University, Fullerton in May 2025 with a B.S. in Computer Science. My passion for software began at a young age as I was creating mods for my friends and I to enjoy on a Minecraft server. Throughout the years, this passion has grown to encompass solving real-world problems through software.</p>
               <br></br>
-              <p>As a software engineer, I enjoy working on both front-end and back-end development, as well as exploring the field of machine learning. I am always eager to learn new technologies and improve my skills. In my free time, I enjoy building projects, and staying up-to-date with the latest trends in technology.</p>
+              <p>At TaxRise, I build client-facing and internal applications with Next.js, support migrating data from Salesforce to PostgreSQL, and maintain tooling for text and voice AI agents. I enjoy working across front-end and back-end development, as well as exploring machine learning. In my free time, I enjoy building projects and staying up-to-date with the latest trends in technology.</p>
               <br></br>
               <p>Feel free to explore my portfolio to see some of the projects I've worked on and the skills I've acquired. If you'd like to get in touch, please don't hesitate to reach out through the contact section below!</p>
             </div>
@@ -439,17 +455,31 @@ export default function Portfolio() {
             <li className="p-10">
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
                 <div>
-                  <p className="text-lg font-semibold text-slate-900">Lead Research Assistant · Supportive Housing Project</p>
-                  <p className="text-sm text-slate-600">Led a 5-person team to develop a IoT system</p>
+                  <p className="text-lg font-semibold text-slate-900">Software Engineer @ TaxRise</p>
+                  <p className="text-sm text-slate-600">Client-facing apps, data migration, and AI agent tooling</p>
+                </div>
+                <p className="text-sm text-slate-500">September 2026 – Present · Irvine, CA</p>
+              </div>
+              <ul className="mt-3 list-disc pl-5 text-slate-700 space-y-2">
+                <li className="text-md text-slate-700">Develop client-facing and internal applications using Next.js and backend services to streamline tax relief workflows, enabling clients to complete the entire process online.</li>
+                <li className="text-md text-slate-700">Support the migration from Salesforce to PostgreSQL, including redesigning database schemas to reduce complexity and consolidate client data.</li>
+                <li className="text-md text-slate-700">Implement GitHub Actions to track workflows touched by each pull request, streamlining the QA and validation process.</li>
+                <li className="text-md text-slate-700">Maintain tooling for client-facing AI agents including text and voice agents through ElevenLabs, reducing human transfers by 15%.</li>
+              </ul>
+            </li>
+            <li className="p-10">
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
+                <div>
+                  <p className="text-lg font-semibold text-slate-900">Research Assistant · Supportive Housing Project</p>
+                  <p className="text-sm text-slate-600">Full-stack IoT platform for housing providers and residents</p>
                 </div>
                 <p className="text-sm text-slate-500">June 2024 – July 2025 · Fullerton, CA</p>
               </div>
               <ul className="mt-3 list-disc pl-5 text-slate-700 space-y-2">
-                <li className="text-md text-slate-700">Built and maintained Node.js/Express Rest APIs for the Smart Hub application for use by housing providers and residents including role based access control and authentication. </li>
+                <li className="text-md text-slate-700">Built and maintained Node.js/Express Rest APIs for the Smart Hub application for use by housing providers and residents including role based access control and authentication.</li>
                 <li className="text-md text-slate-700">Implemented scrum and CI/CD practices including automated unit testing which allowed the team to complete the project ahead of schedule while safeguarding client PHI.</li>
                 <li className="text-md text-slate-700">Raised over $1.2 million in funding from the NSF by co-authoring documentation and presentations.</li>
                 <li className="text-md text-slate-700">Delivered an IoT system including a full stack application serving over 30,000 residents.</li>
-                <li className="text-md text-slate-700">Developed C++ firmware for the ESP32 for SmartPill, SmartPot, and SmartMotion achieving latency below 250ms for all devices.</li>
               </ul>
             </li>
           </ul>
@@ -458,14 +488,6 @@ export default function Portfolio() {
         <Section id="education" title="Education">
           <br></br>
           <div className="mx-auto max-w-3xl grid gap-3 text-left">
-            <div className="rounded-2xl border border-slate-200 p-10 shadow-sm">
-              <p className="text-lg text-black font-bold">University of California - Irvine</p>
-              <div className="flex items-center">
-                <p className="font-medium text-slate-900">Master of Computer Science</p>
-                <p className="text-sm text-slate-600">&nbsp;|&nbsp;Expected January of 2028</p>
-              </div>
-            </div>
-            <br></br>
             <div className="rounded-2xl border border-slate-200 p-10 shadow-sm">
               <p className="text-lg text-black font-bold">California State University, Fullerton</p>
               <div className="flex items-center">
@@ -485,17 +507,10 @@ export default function Portfolio() {
           <br></br>
           <div className="mx-auto max-w-7xl space-y-6">
             <ProjectCard
-              title="Personal Injury Sync"
-              description="A full-stack web application built using React, Go, and PostgreSQL to allow medical providers to increase their visibility to personal injury firms while streamlining the pre-litigation case workflow."
-              tech={["React", "Go", "PostgreSQL"]}
+              title="PI Sync"
+              description="A full-stack Go and React application for law firms to connect with lien providers, track client treatment, and build demand packages to streamline the pre-litigation process. The backend supports secure PHI exchange with HIPAA-oriented access logs and strict RBAC, and a PostgreSQL schema with indexing and query optimization reduced common query response times to below 200ms."
+              tech={["Go", "React", "PostgreSQL"]}
               image={"/PersonalInjurySync.png"}
-            />
-            <ProjectCard
-              title="Mastermind Trivia Game"
-              description="A full-stack web application built using Next.js and AWS services including Lambda, DynamoDB, S3, and Step Functions to create a multiplayer real-time trivia-style game based around soccer with different game modes. The application features a serverless architecture, allowing for scalability and cost-effectiveness. Users can sign up and challenge their friends."
-              tech={["Next.js", "AWS Lambda", "DynamoDB", "S3", "Step Functions", "TypeScript", "Tailwind CSS"]}
-              image={"/Mastermind.png"}
-              githubUrl="https://github.com/falshami2002/Mastermind"
             />
             {/* <ProjectCard
               title="Go Database"
